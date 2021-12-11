@@ -6,146 +6,20 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
-    <title>中奖结果</title>
+    <title>抽選結果</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/wall.css">
-    <style type="text/css">
-        .wall {
-            overflow: scroll;
-            background-repeat: repeat;
-        }
+    <link rel="stylesheet" type="text/css" href="css/result.css">
 
-        ::-webkit-scrollbar {
-            display: none;
-        }
-
-        body,
-        html {
-            width: 100%;
-            height: 100%;
-        }
-
-        .mask {
-            -webkit-filter: blur(5px);
-            filter: blur(5px);
-        }
-
-        #main {
-            -webkit-transition: all 1s;
-            transition: all 1s;
-        }
-
-        .result-list {
-            text-align: center;
-            color: #4de7c8;
-            font-size: 30px;
-            line-height: 50px;
-            margin-top: 50px;
-            margin-bottom: 50px;
-            font-family: '幼圆';
-        }
-
-        .result-title {
-            text-align: center;
-            color: #4de7c8;
-            font-size: 40px;
-            margin-top: 100px;
-            font-family: '幼圆';
-        }
-
-        .title {
-            text-align: center;
-            color: #4de7c8;
-            font-size: 40px;
-            line-height: 100px;
-            font-family: '幼圆';
-            padding: 0;
-            margin: 0;
-        }
-
-        .none {
-            display: none;
-        }
-
-        marquee {
-            color: #fff;
-        }
-
-        span {
-            display: inline-block;
-            margin-right: 30px;
-        }
-
-        .lbl {
-            color: #4de7c8;
-            width: 220px;
-            float: left;
-            height: 100px;
-            line-height: 100px;
-            text-align: center;
-        }
-
-        .prize_box {
-            font-size: 40px;
-        }
-
-        .prize_box .bd {
-            margin-left: 220px;
-            height: 100px;
-            line-height: 100px;
-            overflow: hidden;
-        }
-
-        .mar {
-            height: 100px;
-            line-height: 100px;
-        }
-
-        .titlebox {
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-        }
-        .titlebox button{
-            display: inline-block;
-            zoom: 1;
-            line-height: normal;
-            white-space: nowrap;
-            vertical-align: middle;
-            text-align: center;
-            cursor: pointer;
-            -webkit-user-drag: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            color: #fff;
-            border:none;
-            background-color: rgb(202, 60, 60);
-            height:35px;
-            width:90px;
-            border-radius: 4px;
-            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-        }
-        .font_small{
-            font-size:25px!important;
-            height:30px!important;
-            line-height: 30px!important;
-            transform:translateY(-30px)
-
-        }
     </style>
 </head>
 
 <body>
     <div class="wall" id="main">
-        <h3 class="title">获奖名单</h3>
+        <h3 class="title">当選リスト</h3>
         <div class="prize_box">
-            <div class="lbl">特等奖
-                <div class="font_small">（{{result1.length}}人）</div>
+            <div class="lbl">特等賞
+                <div class="font_small">（{{result1.length}}名）</div>
             </div>
             <div class="bd">
                 <marquee class="mar" scrollamount="20">
@@ -154,8 +28,8 @@
             </div>
         </div>
         <div class="prize_box">
-            <div class="lbl">一等奖 
-                <div class="font_small">（{{result2.length}}人）</div>
+            <div class="lbl">一等賞
+                <div class="font_small">（{{result2.length}}名）</div>
             </div>
             <div class="bd">
                 <marquee class="mar" scrollamount="20">
@@ -164,8 +38,8 @@
             </div>
         </div>
         <div class="prize_box">
-            <div class="lbl">二等奖
-                <div class="font_small">（{{result3.length}}人）</div>
+            <div class="lbl">二等賞
+                <div class="font_small">（{{result3.length}}名）</div>
             </div>
             <div class="bd">
                 <marquee class="mar" scrollamount="20">
@@ -174,8 +48,8 @@
             </div>
         </div>
         <div class="prize_box">
-            <div class="lbl">三等奖
-                <div class="font_small">（{{result4.length}}人）</div>
+            <div class="lbl">三等賞
+                <div class="font_small">（{{result4.length}}名）</div>
             </div>
             <div class="bd">
                 <marquee class="mar" scrollamount="20">
@@ -184,8 +58,8 @@
             </div>
         </div>
         <div class="prize_box">
-            <div class="lbl">幸运奖
-                <div class="font_small">（{{result5.length}}人）</div>
+            <div class="lbl">Lucky賞
+                <div class="font_small">（{{result5.length}}名）</div>
             </div>
             <div class="bd">
                 <marquee class="mar" scrollamount="20">
@@ -194,7 +68,7 @@
             </div>
         </div>
         <div class="titlebox">
-            <button class="pure-button button-warning" @click="exportData">导出中奖名单</button>
+            <button class="pure-button button-warning" @click="exportData">当選結果出力</button>
         </div>
     </div>
     <script type="text/javascript" src="js/vue.js"></script>
@@ -214,15 +88,15 @@
                 let jsonResult = localStorage.getItem("choosed");
                 let resultAll = JSON.parse(jsonResult);
                 for (let item in resultAll) {
-                    if (resultAll[item] == '特等奖') {
+                    if (resultAll[item] == '特等賞') {
                         this.result1.push(item);
-                    } else if (resultAll[item] == '一等奖') {
+                    } else if (resultAll[item] == '一等賞') {
                         this.result2.push(item);
-                    } else if (resultAll[item] == '二等奖') {
+                    } else if (resultAll[item] == '二等賞') {
                         this.result3.push(item);
-                    } else if (resultAll[item] == '三等奖') {
+                    } else if (resultAll[item] == '三等賞') {
                         this.result4.push(item);
-                    } else if (resultAll[item] == '幸运奖') {
+                    } else if (resultAll[item] == 'Lucky賞') {
                         this.result5.push(item);
                     }
                 }
@@ -287,11 +161,11 @@
                 },
                 exportData: function () {
                     let txtString = '';
-                    txtString += this.spliceString(this.result1, "特等奖");
+                    txtString += this.spliceString(this.result1, "特等賞");
                     txtString += this.spliceString(this.result2, "一等奖");
                     txtString += this.spliceString(this.result3, "二等奖");
-                    txtString += this.spliceString(this.result4, "三等奖");
-                    txtString += this.spliceString(this.result5, "幸运奖");
+                    txtString += this.spliceString(this.result4, "三等賞");
+                    txtString += this.spliceString(this.result5, "Lucky賞");
                     const base64 = (s) => {
                         return window.btoa(unescape(encodeURIComponent(s)));
                     }
@@ -299,7 +173,7 @@
                     const url = uri + base64(txtString);
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = '全部中奖名单.txt';
+                    a.download = '当選結果.txt';
                     a.click();
                 }
             }
