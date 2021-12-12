@@ -37,7 +37,7 @@
             :class="{ 'button-error': selected == value}">{{value}}
         </button>
         <button class="pure-button" @click="toggle" :class="{'button-secondary': !running,
-               'button-success': running}">{{running?'ストップ!':'スタート'}}</button>
+               'button-success': running}">{{running?'STOP':'START'}}</button>
         <button class="pure-button button-export" @click="exportData" v-show='titleActive'>Export</button>
     </div>
     <script type="text/javascript" src="js/zepto.js"></script>
