@@ -131,10 +131,10 @@ let maxPrizeNum = 50;
     new Vue({
         el: '#tools',
         data: {
-            selected: 'Lucky賞',
+            selected: '参加賞',
             running: false,
             btns: [
-                '特等賞', '一等賞', '二等賞', '三等賞', 'Lucky賞'
+                '一等賞', '二等賞', '三等賞', '参加賞'
             ],
             prizeNum: 1,
             lotteryName: '',
