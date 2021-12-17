@@ -18,7 +18,7 @@
     <div class="wall" id="main">
         <h3 class="title">当選リスト</h3>
         <div class="prize_box">
-            <div class="lbl">特等賞
+            <div class="lbl">一等賞
                 <div class="font_small">（{{result1.length}}名）</div>
             </div>
             <div class="bd">
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="prize_box">
-            <div class="lbl">一等賞
+            <div class="lbl">二等賞
                 <div class="font_small">（{{result2.length}}名）</div>
             </div>
             <div class="bd">
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="prize_box">
-            <div class="lbl">二等賞
+            <div class="lbl">三等賞
                 <div class="font_small">（{{result3.length}}名）</div>
             </div>
             <div class="bd">
@@ -48,22 +48,12 @@
             </div>
         </div>
         <div class="prize_box">
-            <div class="lbl">三等賞
+            <div class="lbl">参加賞
                 <div class="font_small">（{{result4.length}}名）</div>
             </div>
             <div class="bd">
                 <marquee class="mar" scrollamount="20">
                     <span v-for='(item,index) in result4' :key="index">{{item}}</span>
-                </marquee>
-            </div>
-        </div>
-        <div class="prize_box">
-            <div class="lbl">Lucky賞
-                <div class="font_small">（{{result5.length}}名）</div>
-            </div>
-            <div class="bd">
-                <marquee class="mar" scrollamount="20">
-                    <span v-for='(item,index) in result5' :key="index">{{item}}</span>
                 </marquee>
             </div>
         </div>
@@ -81,23 +71,20 @@
                 result2: [],
                 result3: [],
                 result4: [],
-                result5: [],
             },
             mounted() {
                 let str_results = [];
                 let jsonResult = localStorage.getItem("choosed");
                 let resultAll = JSON.parse(jsonResult);
                 for (let item in resultAll) {
-                    if (resultAll[item] == '特等賞') {
+                    if (resultAll[item] == '一等賞') {
                         this.result1.push(item);
-                    } else if (resultAll[item] == '一等賞') {
-                        this.result2.push(item);
                     } else if (resultAll[item] == '二等賞') {
-                        this.result3.push(item);
+                        this.result2.push(item);
                     } else if (resultAll[item] == '三等賞') {
+                        this.result3.push(item);
+                    } else if (resultAll[item] == '参加賞') {
                         this.result4.push(item);
-                    } else if (resultAll[item] == 'Lucky賞') {
-                        this.result5.push(item);
                     }
                 }
                 window.setInterval(function () {
@@ -161,11 +148,10 @@
                 },
                 exportData: function () {
                     let txtString = '';
-                    txtString += this.spliceString(this.result1, "特等賞");
-                    txtString += this.spliceString(this.result2, "一等奖");
-                    txtString += this.spliceString(this.result3, "二等奖");
-                    txtString += this.spliceString(this.result4, "三等賞");
-                    txtString += this.spliceString(this.result5, "Lucky賞");
+                    txtString += this.spliceString(this.result1, "一等賞");
+                    txtString += this.spliceString(this.result2, "二等奖");
+                    txtString += this.spliceString(this.result3, "三等奖");
+                    txtString += this.spliceString(this.result4, "参加賞");
                     const base64 = (s) => {
                         return window.btoa(unescape(encodeURIComponent(s)));
                     }
