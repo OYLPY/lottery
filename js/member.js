@@ -106,6 +106,9 @@ var member = [
 "actno": "35"},
 {"name": "新井 茉里絵",
 "phone": "",
-"actno": "36"}
+"actno": "36"},
+{"name": "孫進博",
+"phone": "",
+"actno": "37"}
 
 ]
